@@ -29,8 +29,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
-df = pd.read_csv("https://tinyurl.com")
+# This lets you upload your real 150MB CSV directly on the web page
+uploaded_file = st.file_uploader("Upload your creditcard.csv file", type=["csv"])
 
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    
+    # Put all your existing code (print, df.head, model training) inside this block indented!
+    st.write("Dataset loaded successfully!")
+    st.dataframe(df.head())
+else:
+    st.warning("Please upload the creditcard.csv file to run the analysis.")
+    st.stop()
+    
 print(df.shape)
 df.head()
 
