@@ -65,7 +65,7 @@ plt.title('Fraud vs Normal Transactions')
 plt.xlabel('Class')
 plt.ylabel('Count')
 
-plt.show()
+st.pyplot(plt.gcf())
 
 X = df.drop('Class', axis=1)
 y = df['Class']
@@ -86,10 +86,10 @@ lr.fit(X_train, y_train)
 
 lr_pred = lr.predict(X_test)
 
-print("Accuracy:", accuracy_score(y_test, lr_pred))
-print("Precision:", precision_score(y_test, lr_pred))
-print("Recall:", recall_score(y_test, lr_pred))
-print("F1 Score:", f1_score(y_test, lr_pred))
+st.write("Accuracy:", accuracy_score(y_test, lr_pred))
+st.write("Precision:", precision_score(y_test, lr_pred))
+st.write("Recall:", recall_score(y_test, lr_pred))
+st.write("F1 Score:", f1_score(y_test, lr_pred))
 
 rf = RandomForestClassifier(
     n_estimators=50,
@@ -101,10 +101,10 @@ rf.fit(X_train, y_train)
 
 rf_pred = rf.predict(X_test)
 
-print("Accuracy:", accuracy_score(y_test, rf_pred))
-print("Precision:", precision_score(y_test, rf_pred))
-print("Recall:", recall_score(y_test, rf_pred))
-print("F1 Score:", f1_score(y_test, rf_pred))
+st.write("Accuracy:", accuracy_score(y_test, rf_pred))
+st.write("Precision:", precision_score(y_test, rf_pred))
+st.write("Recall:", recall_score(y_test, rf_pred))
+st.write("F1 Score:", f1_score(y_test, rf_pred))
 
 cm = confusion_matrix(y_test, rf_pred)
 print(cm)
