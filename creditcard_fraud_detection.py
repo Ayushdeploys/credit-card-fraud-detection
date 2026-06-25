@@ -29,7 +29,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
-df = pd.read_csv("https://githubusercontent.com")
+df = pd.read_csv("https://tinyurl.com")
 
 print(df.shape)
 df.head()
